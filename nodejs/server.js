@@ -5,8 +5,9 @@ const multer = require('multer');
 const path = require('path');
 const upload = multer();
 const cors = require('cors');
-const getuser = require('./controllers/auth');
+const { getuser } = require('./controllers/auth');
 const loginRoutes = require('./routes/logins');
+const { getadmin }=require('./controllers/auth')
 const app = express();
 const port = 3001;
 // Middleware
@@ -35,23 +36,55 @@ app.use('/login', function(req, res, next) {
     if(!token){
       res.render('login')
     }
-    const user=getuser(token);
+    const user= getuser(token);
     if(!user){
       res.render('login')
     }
-    if(user){
-      res.render('votehome')
-    }
+    res.render("votehome")
 
   }catch(error){
     res.send(error)
+    console.log(error)
   }
 });
-
+app.use('/adminlogin',function(req,res){
+  try{
+    console.log("h")
+    const admin=req.cookies.admin;
+    if(!admin){
+      res.render('adminlogin')
+    }
+    const admintoken=getadmin(admin);
+    if(!admintoken){
+      res.render('adminlogin')
+    }
+    if(admintoken){
+      res.render('adminhome')
+    }
+    
+  }catch(error){
+    console.log(error)
+    res.send(error)
+  }
+})
 // Routes
+const voteerinfo=require('./routes/voterinfocheck');
+const adminlogin=require('./routes/register');
+const adminlogincookie=require('./routes/adminlogin')
+const newvoteradd=require('./routes/newvoter')
+const newcandidate=require('./routes/newcandidate')
+const votecast=require('./routes/votecast')
+const candidateinfo=require('./routes/candidateinfo')
+
 
 app.use('/check', loginRoutes);
-
+app.use('/voterinfo',voteerinfo);
+app.use('/adminlogin',adminlogin);
+app.use('/adminlogincokie',adminlogincookie)
+app.use('/newvoteradd',newvoteradd)
+app.use('/newcandidate',newcandidate)
+app.use('/votecast',votecast)
+app.use('/candidateinfo',candidateinfo)
 // Start the server
 app.listen(port, () => {
   console.log('Server is listening on Port', port);

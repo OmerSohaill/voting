@@ -9,11 +9,12 @@ routes.post('/', async function(req, res) {
         const { email, password } = req.body;
         console.log(email,password)
         const user = await logins.findOne({ email, password });
+        console.log(user)
 
         if (user) {
             const token = setuser(user);
             res.cookie('token', token).render('votehome');
-        } if(!user) {
+        }else if(!user) {
             res.send("Check your Email And Password and try again");
         }
     } catch (error) {
