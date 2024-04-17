@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include('nav.ejs') %>
+    <form action="http://localhost:3001/voterinfo" method="">
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 vinfo">Voter Information</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base vdetail">Enter Voter ID to Check Deatailed .</p>
+          </div>
+          <div
+            class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <div class="relative flex-grow w-full">
+              <label for="cnic" class="leading-7 text-sm text-gray-600 vid">EMAIL</label>
+              <input type="email" id="full-name" name="email"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out vinput">
+            </div>
+            <div class="relative flex-grow w-full">
+              <label for="cnic" class="leading-7 text-sm text-gray-600 vid">ID</label>
+              <input type="number" id="full-name" name="cnic"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out vinput">
+            </div>
+
+            <button type="submit"
+              class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">check</button>
+          </div>
+        </div>
+      </section>
+    </form>
+
+    <form action="http://localhost:3001/votecast" method="post">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 vinfo">Vote Cast</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base vdetail">Enter your cnic and candidate id to whom you
+              want to cast vote and click on cast vote button below</p>
+          </div>
+          <div
+            class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <div class="relative flex-grow w-full">
+
+
+              <div class="relative flex-grow w-full">
+                <label for="cnic" class="leading-7 text-sm text-gray-600 vid">EMAIL</label>
+                <input type="email" id="full-name" name="email"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out vinput">
+              </div>
+              <label for="full-name" class="leading-7 text-sm text-gray-600 vid">Your Cnic</label>
+              <input type="number" id="full-name" name="cnic"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative flex-grow w-full">
+              <label for="email" class="leading-7 text-sm text-gray-600 vid">Candidate ID</label>
+              <input type="number" id="email" name="id"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <button type="submit"
+              class=" text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Vote
+              Cast</button>
+          </div>
+        </div>
+      </section>
+    </form>
+
+
+
+    <form action="http://localhost:3001/candidateinfo" method="post">
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 vinfo">CANDIDATE INFORMATION</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base vdetail">Enter CANDIDATE ID to Check Deatailed .</p>
+          </div>
+          <div
+            class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            
+            <div class="relative flex-grow w-full">
+              <label for="cnic" class="leading-7 text-sm text-gray-600 vid">ID</label>
+              <input type="number" id="full-name" name="cnic"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out vinput">
+            </div>
+
+            <button type="submit"
+              class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">check</button>
+          </div>
+        </div>
+      </section>
+    </form>
+    <style>
+      .vinfo {
+        color: white;
+
+      }
+
+      .vdetail {
+        color: #01D293;
+      }
+
+      .vid {
+        color: white;
+      }
+
+      .vinput {
+        color: white;
+      }
+    </style>
+
+    <%- include('style.ejs') %>
+
+</body>
+
+</html>
