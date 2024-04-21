@@ -3,7 +3,8 @@ const mongoose=require ("mongoose");
 const login=new mongoose.Schema({
     email:{
         type:String,
-    required:true
+    required:true,
+   
     },
     password:{
         type:String,
@@ -14,13 +15,15 @@ const login=new mongoose.Schema({
 const voterregister=new mongoose.Schema({
     email:{
         type:String,
-        required:true
+        required:true,
+      
       
        
     },
     cnic:{
         type:Number,
-        required:true
+        required:true,
+     
        
        },
     votecast:{
@@ -46,6 +49,7 @@ const candidate=new mongoose.Schema({
         type:Number,
         required:true,
         unique:true
+        
     },
     party:{
         type:String,
